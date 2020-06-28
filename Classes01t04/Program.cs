@@ -6,7 +6,7 @@ namespace Classes01t04
     {
         static void Main(string[] args)
         {
-            Figure figure = new Figure(1, 3, 5, 7, 4, 8, 20, 45);
+            Figure figure = new Figure(new Point(1,3), new Point(3,5), new Point(6,7), new Point(10,20));
             figure.ShowDescription();
         }
     }

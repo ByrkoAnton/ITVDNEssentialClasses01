@@ -6,42 +6,40 @@ namespace Classes01t04
 {
     class Figure
     {
-        Point p1;
-        Point p2;
-        Point p3;
-        Point p4;
-        Point p5;
+        Point[] p = new Point[5];
+
         private string name { get; }
 
-        public Figure(int x1, int y1, int x2, int y2, int x3, int y3)
+        public Figure(Point p1, Point p2, Point p3)
         {
-            p1 = new Point(x1, y1);
-            p2 = new Point(x2, y2);
-            p3 = new Point(x3, y3);
+            p[0] = new Point(p1.GetX, p1.GetY);
+            p[1] = new Point(p2.GetX, p2.GetY);
+            p[2] = new Point(p3.GetX, p3.GetY);
 
-            p4 = null;
-            p5 = null;
+            p[3] = null;
+            p[4] = null;
             name = "Triangle";
         }
 
-        public Figure(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4)
+        public Figure(Point p1, Point p2, Point p3, Point p4)
         {
-            p1 = new Point(x1, y1);
-            p2 = new Point(x2, y2);
-            p3 = new Point(x3, y3);
-            p4 = new Point(x4, y4);
+            p[0] = new Point(p1.GetX, p1.GetY);
+            p[1] = new Point(p2.GetX, p2.GetY);
+            p[2] = new Point(p3.GetX, p3.GetY);
+            p[3] = new Point(p4.GetX, p4.GetY);
 
-            p5 = null;
+            p[4] = null;
             name = "Quadrangle";
         }
 
-        public Figure(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4, int x5, int y5)
+        public Figure(Point p1, Point p2, Point p3, Point p4, Point p5)
         {
-            p1 = new Point(x1, y1);
-            p2 = new Point(x2, y2);
-            p3 = new Point(x3, y3);
-            p4 = new Point(x4, y4);
-            p5 = new Point(x5, y5);
+            p[0] = new Point(p1.GetX, p1.GetY);
+            p[1] = new Point(p2.GetX, p2.GetY);
+            p[2] = new Point(p3.GetX, p3.GetY);
+            p[3] = new Point(p4.GetX, p4.GetY);
+            p[4] = new Point(p5.GetX, p5.GetY);
+
             name = "Pentagon";
         }
 
@@ -52,14 +50,14 @@ namespace Classes01t04
 
         public double GetPerimetr()
         {
-            if (p4 == null)
-                return GetLenghtSide(p1, p2) + GetLenghtSide(p2, p3) + GetLenghtSide(p1, p3);
+            if (p[3] == null)
+                return GetLenghtSide(p[0], p[1]) + GetLenghtSide(p[1], p[2]) + GetLenghtSide(p[0], p[2]);
 
-            if (p5 == null)
-                return GetLenghtSide(p1, p2) + GetLenghtSide(p2, p3) + GetLenghtSide(p3, p4) + GetLenghtSide(p4, p1);
+            if (p[4] == null)
+                return GetLenghtSide(p[0], p[1]) + GetLenghtSide(p[1], p[2]) + GetLenghtSide(p[2], p[3]) + GetLenghtSide(p[3], p[0]);
 
             return
-                GetLenghtSide(p1, p2) + GetLenghtSide(p2, p3) + GetLenghtSide(p3, p4) + GetLenghtSide(p4, p5) + GetLenghtSide(p5, p1);
+                GetLenghtSide(p[0], p[1]) + GetLenghtSide(p[1], p[2]) + GetLenghtSide(p[2], p[3]) + GetLenghtSide(p[3], p[4]) + GetLenghtSide(p[4], p[0]);
         }
 
         public void ShowDescription()
